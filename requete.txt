@@ -1,0 +1,29 @@
+#Requete d'export
+SELECT P.Id,BODY,Title,Tags,P.CreationDate,AboutMe FROM posts P
+FULL OUTER JOIN USERS U ON OWNERUSERID = U.id
+where 
+PostTypeId = 1
+AND AcceptedAnswerId is not null
+AND score > 100
+AND Tags is not null
+
+#Seconde requête sur les About ME qui sont peu renseignés
+SELECT P.Id,BODY,Title,Tags,P.CreationDate FROM posts P
+where 
+PostTypeId = 1
+AND AcceptedAnswerId is not null
+AND score > 200
+AND Tags is not null
+
+#Requête pour avoir la liste des Tags attendus
+SELECT 
+
+Prendre une question PostTypeId = 1
+Avec une réponse AcceptedAnswerId n'est pas nulle
+un score >10 pour filtrer le nombre de lignes en retour
+et enfin s'assurer que les tags sont biens présents
+
+
+Filtre sur le score pour avoir un nombre de lignes raisonnables >10 500 000, >5 1M
+RelatedPostedId ==> Relation avec un autre poste pour avoir les mots clés liés ?
+Allez chercher les synonymes ?
