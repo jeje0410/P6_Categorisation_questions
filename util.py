@@ -1,26 +1,7 @@
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import matplotlib.pyplot as plt
-from datetime import date
-today = date.today()
-from tqdm import tqdm
-import nltk
 from nltk.corpus import stopwords
-from nltk.tokenize import RegexpTokenizer
 from nltk.stem import PorterStemmer
-from bs4 import BeautifulSoup
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-import sklearn
-from wordcloud import WordCloud
-import string
-from sklearn.decomposition import NMF, LatentDirichletAllocation
-from sklearn.model_selection import GridSearchCV
-import pyLDAvis
-import pyLDAvis.sklearn
-import gensim
-from itertools import combinations
+from nltk.corpus import stopwords
 from sklearn.metrics import accuracy_score, f1_score, hamming_loss,jaccard_score
-from sklearn.tree import DecisionTreeClassifier
 
 #Fonction de preprocessing
 stop_words = set(stopwords.words('English'))
@@ -40,7 +21,7 @@ def lemmatisation(Word_list):
     return Words
 
 #Fonction qui supprime le tag si celui ci n'appartient au TOP        
-def removeNotTop100(Word_list):
+def removeNotTop100(Word_list,Top100):
     filtered_Word_list = Word_list[:] #make a copy of the Word_list
     for Word in Word_list: # iterate over Word_list
         if Word not in Top100: 
