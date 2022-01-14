@@ -48,6 +48,18 @@ def processCSharp(Word_list):
             word_list[index-1] = 'c#'
     return word_list
 
+#Fonction qui traite les termes très proches
+tagSimilaire = {'c++11':'c++','angularjs':'angular','asp.net-mvc':'asp.net','datetime':'date','github':'git','java-8':'java','python-3.x':'python','visual-studio-code':'visual-studio'}
+def removeTagSimilaire(Word_list):
+    word_list = Word_list[:] #make a copy of the Word_list
+    for index, value in enumerate(word_list):
+        if value in tagSimilaire:
+            if tagSimilaire[value] in word_list:
+                word_list.remove(value) # remove Word
+            else:
+                word_list[index-1] = tagSimilaire[value]
+    return word_list
+
 # Fonction qui ne fait rien pour exploiter le pré traitement que nous avons réalisé
 def dummy(doc):
     return doc
