@@ -1,0 +1,15 @@
+﻿bs4
+docutils
+entrypoints==0.3
+fastcache==1.1.0
+Flask
+flatbuffers==2.0
+fonttools==4.25.0
+gensim==4.1.2
+gunicorn
+nltk
+scikit-learn==1.0
+numpy==1.19.5
+numpydoc
+pandas
+joblib
